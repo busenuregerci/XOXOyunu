@@ -17,16 +17,16 @@ namespace XOXOyunu
 
         private string[] moralBozucuSozler = new string[]
         {
-            "Biraz daha çalýþmalýsýn.",
-            "Böyle kazanamazsýn.",
-            "Dikkatli olmalýsýn.",
-            "Bu hamleyle kazanamazsýn.",
+            "Biraz daha Ã§alÃ½Ã¾malÃ½sÃ½n.",
+            "BÃ¶yle kazanamazsÃ½n.",
+            "Dikkatli olmalÃ½sÃ½n.",
+            "Bu hamleyle kazanamazsÃ½n.",
             "Daha iyi yapabilirsin.",
-            "Bu pek iyi bir hamle deðil.",
-            "Kaybetmek üzere gibisin.",
-            "Biraz daha düþün.",
-            "Bu strateji iþe yaramaz.",
-            "Böyle devam edersen zor."
+            "Bu pek iyi bir hamle deÃ°il.",
+            "Kaybetmek Ã¼zere gibisin.",
+            "Biraz daha dÃ¼Ã¾Ã¼n.",
+            "Bu strateji iÃ¾e yaramaz.",
+            "BÃ¶yle devam edersen zor."
         };
 
         int sozlerinSuresi = 3;
@@ -35,7 +35,7 @@ namespace XOXOyunu
         {
             foreach (Control control in Controls)
             {
-                if (control is Button button && button.Name != "btnBaslat") // baþlat butonu kapalý olmasýn
+                if (control is Button button && button.Name != "btnBaslat") // baÃ¾lat butonu kapalÃ½ olmasÃ½n
                 {
                     button.Enabled = false;
                     button.Click += ButtonClick;
@@ -48,8 +48,8 @@ namespace XOXOyunu
             OyunuResetle();
             timer1.Start();
             UpdateCursor();
-            ButonlarýAç();
-            lblSirayiGoster.Text = "Sýra X'te";
+            ButonlarÃ½AÃ§();
+            lblSirayiGoster.Text = "${{ secrets.CONNECTION_STRING }}";
         }
 
         private void OyunuResetle()
@@ -58,7 +58,7 @@ namespace XOXOyunu
             kalanSure = 10;
             sozlerinSuresi = 3;
             lblKalanSure.Text = kalanSure.ToString();
-            lblSirayiGoster.Text = "Sýra X'te";
+            lblSirayiGoster.Text = "SÃ½ra X'te";
             lblSozler.Text = "";
             timer1.Stop();
             UpdateCursor();
@@ -72,7 +72,7 @@ namespace XOXOyunu
             }
         }
 
-        private void ButonlarýAç()
+        private void ButonlarÃ½AÃ§()
         {
             foreach (Control control in Controls)
             {
@@ -90,18 +90,18 @@ namespace XOXOyunu
             if (button.Text == "")
             {
                 button.Text = xMi ? "X" : "O";
-                xMi = !xMi; // sýrayý deðiþtir
+                xMi = !xMi; // sÃ½rayÃ½ deÃ°iÃ¾tir
                 kalanSure = 10;
                 lblKalanSure.Text = kalanSure.ToString();
                 UpdateCursor();
-                KazanýKontrolEt();
+                KazanÃ½KontrolEt();
                 SirayiGoster();
             }
         }
 
         private void SirayiGoster()
         {
-            lblSirayiGoster.Text = xMi ? "Sýra X'te" : "Sýra O'da";
+            lblSirayiGoster.Text = xMi ? "SÃ½ra X'te" : "SÃ½ra O'da";
         }
 
         private void MoralBozucuSozleriGetir()
@@ -125,7 +125,7 @@ namespace XOXOyunu
                 SirayiGoster();
             }
 
-            // saniyede bir moral bozucu sözler çok hýzlý oldu
+            // saniyede bir moral bozucu sÃ¶zler Ã§ok hÃ½zlÃ½ oldu
             if (sozlerinSuresi > 0)
             {
                 sozlerinSuresi--;
@@ -142,7 +142,7 @@ namespace XOXOyunu
             this.Cursor = xMi ? Cursors.Cross : Cursors.WaitCursor;
         }
         // yorum
-        private void KazanýKontrolEt()
+        private void KazanÃ½KontrolEt()
         {
             bool kazananXO = false;
 
@@ -166,16 +166,16 @@ namespace XOXOyunu
             if (kazananXO)
             {
                 timer1.Stop();
-                ButonlarýKapat();
+                ButonlarÃ½Kapat();
                 string kazanan = xMi ? "O" : "X";
                 MessageBox.Show($"KAZANAN {kazanan} OLDU!");
-                lblSozler.Text = "Yeniden oynamak için BAÞLA tuþuna basýnýz.";
+                lblSozler.Text = "Yeniden oynamak iÃ§in BAÃžLA tuÃ¾una basÃ½nÃ½z.";
             }
-            else if (ButonlarDoluMu()) // hepsinin tek tek != ile if içinde kontrolü çok uzun oldu metota aldým.
+            else if (ButonlarDoluMu()) // hepsinin tek tek != ile if iÃ§inde kontrolÃ¼ Ã§ok uzun oldu metota aldÃ½m.
             {
                 timer1.Stop();
                 MessageBox.Show("BERABERE!");
-                lblSozler.Text = "Yeniden oynamak için BAÞLA tuþuna basýnýz.";
+                lblSozler.Text = "Yeniden oynamak iÃ§in BAÃžLA tuÃ¾una basÃ½nÃ½z.";
             }
         }
 
@@ -191,7 +191,7 @@ namespace XOXOyunu
             return true;
         }
 
-        private void ButonlarýKapat()
+        private void ButonlarÃ½Kapat()
         {
             foreach (Control control in Controls)
             {
