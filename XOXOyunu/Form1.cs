@@ -141,7 +141,7 @@ namespace XOXOyunu
         {
             this.Cursor = xMi ? Cursors.Cross : Cursors.WaitCursor;
         }
-
+        // yorum
         private void KazanýKontrolEt()
         {
             bool kazananXO = false;
