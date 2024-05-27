@@ -137,7 +137,7 @@ namespace XOXOyunu
             }
         }
 
-        private void UpdateCursor()
+        private void UpdateCursor() // CURSOR GÜNCELLEMESÝ
         {
             this.Cursor = xMi ? Cursors.Cross : Cursors.WaitCursor;
         }
